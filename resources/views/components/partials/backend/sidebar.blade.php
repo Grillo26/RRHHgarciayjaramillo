@@ -32,9 +32,9 @@
                         <span>Asistencia</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('home.slider') }}">Registro</a></li>
+                        <li><a href="{{ route('attendance.checkin') }}">Registro</a></li>
                     </ul>
-                </li>       
+                </li>          
             </ul>
         </div>
         <!-- Sidebar -->

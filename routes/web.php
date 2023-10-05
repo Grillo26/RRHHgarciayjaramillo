@@ -5,6 +5,9 @@ use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\myController;
 use App\Http\Controllers\ProductController;
+
+use App\Http\Controllers\AttendanceController;
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,14 +24,29 @@ Route::get('/contact', function () { return view('frontend.contact');})->middlew
 
 Route::get('/dashboard', function () { return view('welcome');})->middleware(['auth'])->name('dashboard');
 
+
+// Ruta para mostrar el formulario de salida
+Route::get('/attendance/checkout', 'AttendanceController@showCheckOutForm')->name('attendance.checkout.form');
+// Ruta para procesar el formulario de salida
+Route::post('/attendance/checkout', 'AttendanceController@checkOut')->name('attendance.checkout');
+
 require __DIR__ . '/auth.php';
 
+Route::controller(AttendanceController::class)->group(function() {
+    // Ruta para mostrar el formulario de entrada
+    Route::get('/attendance/checkin', 'showCheckInForm')->name('attendance.checkin');
+    Route::post('/attendance/checkin', 'checkIn')->name('attendance.checkin');
+    Route::get('/attendance/checkout', 'showCheckOutForm')->name('attendance.checkout');
+    Route::post('/attendance/chekcout', 'checkout')->name('attendance.checkout');
+});
 
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admin_logout', 'destroy')->name('admin.logout');
     Route::get('/admin_profile', 'profile')->name('admin.profile');
     Route::get('/admin_edit_profile', 'editProfile')->name('admin.edit.profile');
     Route::post('/admin_store_profile', 'storeProfile')->name('admin.store.profile');
+
+    
 
     // change_password
 
@@ -45,3 +63,6 @@ Route::controller(AboutController::class)->group(function () {
     Route::get('/about_page', 'index')->name('about.page');
     Route::post('/about_page/update', 'aboutPageUpdate')->name('about.page.update');
 });
+
+
+

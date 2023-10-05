@@ -10,7 +10,7 @@
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Upcube</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">RRHH</a></li>
                                 <li class="breadcrumb-item active">Dashboard</li>
                             </ol>
                         </div>
@@ -21,187 +21,31 @@
             <!-- end page title -->
 
             <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Bootstrap Validation - Normal</h4>
-                                        <p class="card-title-desc">Provide valuable, actionable feedback to your users with
-                                            HTML5 form validation–available in all our supported browsers.</p>
-                                        <form class="needs-validation" novalidate="">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="validationCustom01" class="form-label">First name</label>
-                                                        <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required="">
-                                                        <div class="valid-feedback">
-                                                            Looks good!
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="validationCustom02" class="form-label">Last name</label>
-                                                        <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required="">
-                                                        <div class="valid-feedback">
-                                                            Looks good!
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="mb-3">
-                                                        <label for="validationCustom03" class="form-label">State</label>
-                                                        <select class="form-select" id="validationCustom03" required="">
-                                                            <option selected="" disabled="" value="">Choose...</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                        <div class="invalid-feedback">
-                                                            Please select a valid state.
-                                                        </div>
-        
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="mb-3">
-                                                        <label for="validationCustom04" class="form-label">City</label>
-                                                        <input type="text" class="form-control" id="validationCustom04" placeholder="City" required="">
-                                                        <div class="invalid-feedback">
-                                                            Please provide a valid city.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="col-md-4">
-                                                    <div class="mb-3">
-                                                        <label for="validationCustom05" class="form-label">Zip</label>
-                                                        <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required="">
-                                                        <div class="invalid-feedback">
-                                                            Please provide a valid zip.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-check mb-3">
-                                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required="">
-                                                <label class="form-check-label" for="invalidCheck">
-                                                    Agree to terms and conditions
-                                                </label>
-                                                <div class="invalid-feedback">
-                                                    You must agree before submitting.
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <button class="btn btn-primary" type="submit">Submit form</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <!-- end card -->
-                            </div> <!-- end col -->
-        
-                            <div class="col-xl-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Bootstrap Validation (Tooltips)</h4>
-                                        <p class="card-title-desc">If your form layout allows it, you can swap the
-                                            <code>.{valid|invalid}-feedback</code> classes for
-                                            <code>.{valid|invalid}-tooltip</code> classes to display validation feedback in a
-                                            styled tooltip.
-                                        </p>
-                                        <form class="needs-validation" novalidate="">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="mb-3 position-relative">
-                                                        <label for="validationTooltip01" class="form-label">First name</label>
-                                                        <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="Mark" required="">
-                                                        <div class="valid-tooltip">
-                                                            Looks good!
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="mb-3 position-relative">
-                                                        <label for="validationTooltip02" class="form-label">Last name</label>
-                                                        <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="Otto" required="">
-                                                        <div class="valid-tooltip">
-                                                            Looks good!
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="mb-3 position-relative">
-                                                        <label for="validationTooltipUsername" class="form-label">Username</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-                                                            </div>
-                                                            <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required="">
-                                                            <div class="invalid-tooltip">
-                                                                Please choose a unique and valid username.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="mb-3 position-relative">
-                                                        <label for="validationTooltip04" class="form-label">State</label>
-                                                        <input type="text" class="form-control" id="validationTooltip04" placeholder="State" required="">
-                                                        <div class="invalid-tooltip">
-                                                            Please provide a valid state.
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <div class="mb-3 position-relative">
-                                                        <label for="validationTooltip03" class="form-label">City</label>
-                                                        <input type="text" class="form-control" id="validationTooltip03" placeholder="City" required="">
-                                                        <div class="invalid-tooltip">
-                                                            Please provide a valid city.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                            <div>
-        
-                                                <button class="btn btn-primary" type="submit">Submit form</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <!-- end card -->
-                            </div> <!-- end col -->
-                        </div>
-
-            <div class="row">
                 <div class="col-xl-3 col-md-6">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="flex-grow-1">
-                                    <p class="text-truncate font-size-14 mb-2">Total Sales</p>
-                                    <h4 class="mb-2">1452</h4>
-                                    <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>9.23%</span>from previous period</p>
+                                    <p class="text-truncate font-size-14 mb-2">Total Personal</p>
+                                    <h4 class="mb-2">20</h4>
+                                    <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>16.2%</span>from previous period</p>
                                 </div>
                                 <div class="avatar-sm">
                                     <span class="avatar-title bg-light text-primary rounded-3">
-                                        <i class="ri-shopping-cart-2-line font-size-24"></i>  
+                                        <i class="ri-user-3-line font-size-24"></i>  
                                     </span>
                                 </div>
                             </div>                                            
                         </div><!-- end cardbody -->
                     </div><!-- end card -->
                 </div><!-- end col -->
+                <!--
                 <div class="col-xl-3 col-md-6">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="flex-grow-1">
-                                    <p class="text-truncate font-size-14 mb-2">New Orders</p>
+                                    <p class="text-truncate font-size-14 mb-2"></p>
                                     <h4 class="mb-2">938</h4>
                                     <p class="text-muted mb-0"><span class="text-danger fw-bold font-size-12 me-2"><i class="ri-arrow-right-down-line me-1 align-middle"></i>1.09%</span>from previous period</p>
                                 </div>
@@ -211,45 +55,10 @@
                                     </span>
                                 </div>
                             </div>                                              
-                        </div><!-- end cardbody -->
-                    </div><!-- end card -->
+                        </div><!-- end cardbody
+                    </div><!-- end card
                 </div><!-- end col -->
-                <div class="col-xl-3 col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex">
-                                <div class="flex-grow-1">
-                                    <p class="text-truncate font-size-14 mb-2">New Users</p>
-                                    <h4 class="mb-2">8246</h4>
-                                    <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>16.2%</span>from previous period</p>
-                                </div>
-                                <div class="avatar-sm">
-                                    <span class="avatar-title bg-light text-primary rounded-3">
-                                        <i class="ri-user-3-line font-size-24"></i>  
-                                    </span>
-                                </div>
-                            </div>                                              
-                        </div><!-- end cardbody -->
-                    </div><!-- end card -->
-                </div><!-- end col -->
-                <div class="col-xl-3 col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex">
-                                <div class="flex-grow-1">
-                                    <p class="text-truncate font-size-14 mb-2">Unique Visitors</p>
-                                    <h4 class="mb-2">29670</h4>
-                                    <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>11.7%</span>from previous period</p>
-                                </div>
-                                <div class="avatar-sm">
-                                    <span class="avatar-title bg-light text-success rounded-3">
-                                        <i class="mdi mdi-currency-btc font-size-24"></i>  
-                                    </span>
-                                </div>
-                            </div>                                              
-                        </div><!-- end cardbody -->
-                    </div><!-- end card -->
-                </div><!-- end col -->
+                
             </div><!-- end row -->
 
             <div class="row">

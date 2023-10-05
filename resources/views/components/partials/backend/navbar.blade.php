@@ -29,7 +29,7 @@
             <!-- App Search-->
             <form class="app-search d-none d-lg-block">
                 <div class="position-relative">
-                    <input type="text" class="form-control" placeholder="Search...">
+                    <input type="text" class="form-control" placeholder="Buscar...">
                     <span class="ri-search-line"></span>
                 </div>
             </form>
@@ -48,7 +48,7 @@
                     <form class="p-3">
                         <div class="mb-3 m-0">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search ...">
+                                <input type="text" class="form-control" placeholder="Buscar ...">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="submit"><i class="ri-search-line"></i></button>
                                 </div>
@@ -57,39 +57,7 @@
                     </form>
                 </div>
             </div>
-
-            <div class="dropdown d-none d-sm-inline-block">
-                <button type="button" class="btn header-item waves-effect"
-                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="" src="{{ asset('ui/backend') }}/assets/images/flags/bangladesh.png" alt="Header Language" height="16">
-                </button>
-                <div class="dropdown-menu dropdown-menu-end">
-        
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="{{ asset('ui/backend') }}/assets/images/flags/us.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">US</span>
-                    </a>
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="{{ asset('ui/backend') }}/assets/images/flags/spain.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="{{ asset('ui/backend') }}/assets/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="{{ asset('ui/backend') }}/assets/images/flags/italy.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="{{ asset('ui/backend') }}/assets/images/flags/russia.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>
-                    </a>
-                </div>
-            </div>
+            <!--
 
             <div class="dropdown d-none d-lg-inline-block ms-1">
                 <button type="button" class="btn header-item noti-icon waves-effect"
@@ -141,7 +109,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="dropdown d-none d-lg-inline-block ms-1">
                 <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
@@ -160,10 +128,10 @@
                     <div class="p-3">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h6 class="m-0"> Notifications </h6>
+                                <h6 class="m-0"> Notificationes </h6>
                             </div>
                             <div class="col-auto">
-                                <a href="#!" class="small"> View All</a>
+                                <a href="#!" class="small"> Ver Todo</a>
                             </div>
                         </div>
                     </div>
@@ -231,7 +199,7 @@
                     <div class="p-2 border-top">
                         <div class="d-grid">
                             <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
-                                <i class="mdi mdi-arrow-right-circle me-1"></i> View More..
+                                <i class="mdi mdi-arrow-right-circle me-1"></i> Ver más..
                             </a>
                         </div>
                     </div>
@@ -248,10 +216,10 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
-                    <a class="dropdown-item" href="{{ route('admin.profile') }}"><i class="ri-user-line align-middle me-1"></i>Profile</a>
-                    <a class="dropdown-item" href="{{ route('password_change') }}"><i class="ri-user-line align-middle me-1"></i>Password Change</a>
-                    <a class="dropdown-item" href="#"><i class="ri-wallet-2-line align-middle me-1"></i> My Wallet</a>
-                    <a class="dropdown-item text-danger" href="{{ route('admin.logout') }}"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
+                    <a class="dropdown-item" href="{{ route('admin.profile') }}"><i class="ri-user-line align-middle me-1"></i>Perfil</a>
+                    <a class="dropdown-item" href="{{ route('password_change') }}"><i class="ri-user-line align-middle me-1"></i>Cambiar Contraseña</a>
+                    <!--<a class="dropdown-item" href="#"><i class="ri-wallet-2-line align-middle me-1"></i> My Wallet</a>-->
+                    <a class="dropdown-item text-danger" href="{{ route('admin.logout') }}"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Cerrar Sesión</a>
                 </div>
             </div>
 
