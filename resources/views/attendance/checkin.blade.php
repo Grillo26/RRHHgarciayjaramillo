@@ -13,14 +13,14 @@
                                 @csrf
 
                                 <div class="form-group row">
-                                    <label for="check_in" class="col-md-4 col-form-label text-md-right">Hora de Entrada</label>
+                                    <label for="check_in" class="col-md-4 col-form-label text-center text-md-right">Hora de Entrada</label>
 
                                     <div class="col-md-6">
-                                        <input id="check_in" type="text" class="form-control" name="check_in" value="{{ now() }}" readonly>
+                                        <input id="check_in" type="text" class="form-control text-center" name="check_in" value="{{ now() }}" readonly>
                                     </div>
                                 </div>
 
-                                <div class="form-group row mb-0 mt-2">
+                                <div class="form-group row mb-0  text-center mt-3">
                                     <div class="col-md-6 offset-md-4">
                                         <button type="submit" class="btn btn-success">
                                             Registrar Entrada

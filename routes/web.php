@@ -24,12 +24,6 @@ Route::get('/contact', function () { return view('frontend.contact');})->middlew
 
 Route::get('/dashboard', function () { return view('welcome');})->middleware(['auth'])->name('dashboard');
 
-
-// Ruta para mostrar el formulario de salida
-Route::get('/attendance/checkout', 'AttendanceController@showCheckOutForm')->name('attendance.checkout.form');
-// Ruta para procesar el formulario de salida
-Route::post('/attendance/checkout', 'AttendanceController@checkOut')->name('attendance.checkout');
-
 require __DIR__ . '/auth.php';
 
 Route::controller(AttendanceController::class)->group(function() {
