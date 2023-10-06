@@ -4,10 +4,9 @@
     <head>
         
         <meta charset="utf-8" />
-        <title>Login | Upcube - Admin & Dashboard Template</title>
+        <title>Planta Industrial García y Jaramillo</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-        <meta content="Themesdesign" name="author" />
+       
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{asset('ui/backend')}}/assets/images/favicon.ico">
 
@@ -29,14 +28,14 @@
 
                         <div class="text-center mt-4">
                             <div class="mb-3">
-                                <a href="index.html" class="auth-logo">
-                                    <img src="{{asset('ui/backend')}}/assets/images/logo-dark.png" height="30" class="logo-dark mx-auto" alt="">
-                                    <img src="{{asset('ui/backend')}}/assets/images/logo-light.png" height="30" class="logo-light mx-auto" alt="">
+                                <a class="auth-logo">
+                                    <img src="{{asset('ui/backend')}}/assets/images/logoLogin.png" height="130" class="logo-dark mx-auto" alt="">
+                                    <img src="{{asset('ui/backend')}}/assets/images/logo.png" height="30" class="logo-light mx-auto" alt="">
                                 </a>
                             </div>
                         </div>
     
-                        <h4 class="text-muted text-center font-size-18"><b>Sign In</b></h4>
+                            <h4 class="text-muted text-center font-size-18"><b>Igresar</b></h4>
     
                         <div class="p-3">
                                 <form class="form-horizontal mt-3" method="POST" action="{{ route('login') }}">
@@ -44,7 +43,7 @@
     
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
-                                        <input class="form-control" id="email" type="email" name="email" required="" placeholder="Email">
+                                        <input class="form-control" id="username" type="username" name="username" required="" placeholder="Username">
                                     </div>
                                 </div>
     
@@ -124,9 +123,9 @@
 
             <!-- Email Address -->
             <div>
-                <x-label for="email" :value="__('Email')" />
+                <x-label for="username" :value="__('Email')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-input id="username" class="block mt-1 w-full" type="username" name="username" :value="old('username')" required autofocus />
             </div>
 
             <!-- Password -->
