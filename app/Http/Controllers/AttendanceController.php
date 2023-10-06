@@ -14,9 +14,10 @@ class AttendanceController extends Controller
         // Verificar si el usuario ya ha registrado su ingreso
         $user = auth()->user();
         $lastAttendance = $user->attendances()->latest()->first();
+        
 
         if ($lastAttendance && $lastAttendance->check_out === null) {
-            return redirect()->back()->with('error', 'Ya has registrado tu ingreso.');
+            return view('attendance.verificacion');
         }
 
         return view('attendance.checkin');

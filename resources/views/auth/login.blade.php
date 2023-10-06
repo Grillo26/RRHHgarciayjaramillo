@@ -35,9 +35,8 @@
                             </div>
                         </div>
     
-                            <h4 class="text-muted text-center font-size-18"><b>Igresar</b></h4>
     
-                        <div class="p-3">
+                        <div class="p-2">
                                 <form class="form-horizontal mt-3" method="POST" action="{{ route('login') }}">
                                     @csrf
     
@@ -49,7 +48,7 @@
     
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
-                                        <input class="form-control" id="password" type="password" name="password" required="" placeholder="Password">
+                                        <input class="form-control" id="password" type="password" name="password" required="" placeholder="Contraseña">
                                     </div>
                                 </div>
     
@@ -62,19 +61,17 @@
                                     </div>
                                 </div>
     
-                                <div class="form-group mb-3 text-center row mt-3 pt-1">
+                                <div class="form-group mb-3 text-center row mt-3 pt-1 ">
                                     <div class="col-12">
                                         <button class="btn btn-info w-100 waves-effect waves-light" type="submit">{{ __('Log in') }}</button>
                                     </div>
                                 </div>
     
                                 <div class="form-group mb-0 row mt-2">
-                                    <div class="col-sm-7 mt-3">
-                                        <a href="{{ route('password.request') }}" class="text-muted"><i class="mdi mdi-lock"></i>{{ __('Forgot your password?') }}</a>
+                                    <div class="col-sm-12 mt-3">
+                                        <a class="text-muted"><i class="mdi mdi-lock"></i>{{ __('Por su seguridad guarde su contraseña en un lugar seguro') }}</a>
                                     </div>
-                                    <div class="col-sm-5 mt-3">
-                                        <a href="{{ route('register') }}" class="text-muted"><i class="mdi mdi-account-circle"></i>Create an Accountgit</a>
-                                    </div>
+                                    
                                 </div>
                             </form>
                         </div>

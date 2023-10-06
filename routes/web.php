@@ -17,12 +17,11 @@ Route::get('/home', function () { return view('/frontend_dashboard'); })->middle
 Route::get('/about', function () { return view('frontend.about_index');})->middleware(['auth'])->name('about');
 Route::get('/service', function () { return view('frontend.service');})->middleware(['auth'])->name('service');
 Route::get('/portfolio', function () { return view('frontend.portfolio');})->middleware(['auth'])->name('portfolio');
-Route::get('', function () { return view('frontend.portfolio_details');})->middleware(['auth'])->name('portfolio.details');
 Route::get('/ourblog', function () { return view('frontend.ourblog');})->middleware(['auth'])->name('ourblog');
 Route::get('/ourblog/details', function () { return view('frontend.ourblog_details');})->middleware(['auth'])->name('ourblog.details');
 Route::get('/contact', function () { return view('frontend.contact');})->middleware(['auth'])->name('contact');
 
-Route::get('/dashboard', function () { return view('welcome');})->middleware(['auth'])->name('dashboard');
+Route::get('/', function () { return view('welcome');})->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
 
@@ -39,8 +38,6 @@ Route::controller(AdminController::class)->group(function () {
     Route::get('/admin_profile', 'profile')->name('admin.profile');
     Route::get('/admin_edit_profile', 'editProfile')->name('admin.edit.profile');
     Route::post('/admin_store_profile', 'storeProfile')->name('admin.store.profile');
-
-    
 
     // change_password
 
