@@ -32,7 +32,10 @@
                         <span>Asistencia</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('attendance.checkin') }}">Registro</a></li>
+                        <li><a href="{{ route('checkinMorning') }}">Registro</a></li>
+                    </ul>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('historial') }}">Historial</a></li>
                     </ul>
                 </li>          
             </ul>

@@ -27,10 +27,12 @@ require __DIR__ . '/auth.php';
 
 Route::controller(AttendanceController::class)->group(function() {
     // Ruta para mostrar el formulario de entrada
-    Route::get('/attendance/checkin', 'showCheckInForm')->name('attendance.checkin');
-    Route::post('/attendance/checkin', 'checkIn')->name('attendance.checkin');
-    Route::get('/attendance/checkout', 'showCheckOutForm')->name('attendance.checkout');
-    Route::post('/attendance/chekcout', 'checkout')->name('attendance.checkout');
+    Route::get('/checkin-morning', 'showCheckInMorningForm')->name('checkinMorning');
+    Route::post('/checkin-morning', 'checkInMorning')->name('checkinMorning');
+    Route::get('/checkout-morning', 'showCheckOutMorningForm')->name('checkoutMorning');
+    Route::post('/checkout-morning', 'checkOutMorning')->name('checkoutMorning');
+
+    Route::get('/historial', 'historial')->name('historial');
 });
 
 Route::controller(AdminController::class)->group(function () {

@@ -9,14 +9,14 @@
                         <div class="card-header">Registro de Entrada</div>
 
                         <div class="card-body">
-                            <form method="POST" action="{{ route('attendance.checkin') }}">
+                            <form method="POST" action="{{ route('checkinMorning') }}">
                                 @csrf
 
                                 <div class="form-group row">
-                                    <label for="check_in" class="col-md-4 col-form-label text-center text-md-right">Hora de Entrada</label>
+                                    <label for="checkInMorning" class="col-md-4 col-form-label text-center text-md-right">Hora de Entrada</label>
 
                                     <div class="col-md-6">
-                                        <input id="check_in" type="text" class="form-control text-center" name="check_in" value="{{ now() }}" readonly>
+                                        <input id="checkInMorning" type="text" class="form-control text-center" name="checkInMorning" value="{{ now() }}" readonly>
                                     </div>
                                 </div>
 

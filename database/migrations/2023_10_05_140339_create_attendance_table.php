@@ -16,8 +16,11 @@ class CreateAttendanceTable extends Migration
         Schema::create('attendance', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->dateTime('check_in');
-            $table->dateTime('check_out')->nullable();
+            $table->timestamp('check_in_morning')->nullable();
+            $table->timestamp('check_out_morning')->nullable();
+            $table->timestamp('check_in_afternoon')->nullable();
+            $table->timestamp('check_out_afternoon')->nullable();
+            $table->date('attendance_date');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
