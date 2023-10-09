@@ -30,7 +30,7 @@
                                                 <tr class=" text-center">
                                                     <th scope="row">{{ $checkInDate }}</th>
                                                     <td>{{  $checkInMorning }}</td>
-                                                    <td>{{ $checkOutMorning }}</td>
+                                                    <td>{{  $checkOutMorning }}</td>
                                                     <td>Table cell</td>
                                                     <td>Table cell</td>
                                                         

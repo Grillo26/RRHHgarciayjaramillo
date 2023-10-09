@@ -62,15 +62,6 @@ class AttendanceController extends Controller
             ->whereDate('check_in_morning', $today)
             ->first();
 
-        if (!$morningAttendance) {
-            return redirect()->back()->with('error', 'No has registrado tu asistencia de la mañana.');
-        }
-
-        // Verificar si ya se registró la salida de la mañana
-        if ($morningAttendance->check_out_morning) {
-            return redirect()->back()->with('error', 'Ya has registrado tu salida de la mañana.');
-        }
-
         return view('attendance.checkout_morning');
     }
 
@@ -87,6 +78,7 @@ class AttendanceController extends Controller
         $morningAttendance->check_out_morning = $checkOutMorning;
         $morningAttendance->save();
 
+        return view('attendance.historial');
         return redirect()->back()->with('success', 'Salida de la mañana registrada con éxito.');
     }
 
@@ -102,10 +94,23 @@ class AttendanceController extends Controller
 
         // Verificar si se encontró un registro de asistencia
         if ($lastAttendance) {
-            // Extraer la hora y la fecha de check-in utilizando Carbon
-            $checkInMorning = Carbon::parse($lastAttendance->check_in_morning)->format('H:i:s');
-            $checkOutMorning = Carbon::parse($lastAttendance->check_out_morning)->format('H:i:s');
-            $checkInDate = Carbon::parse($lastAttendance->attendance_date)->format('Y-m-d');
+            
+            $checkOutMorning = $lastAttendance->check_out_morning;
+            $checkInMorning = $lastAttendance->check_in_morning;
+            $checkInDate = Carbon::parse($lastAttendance->attendance_date)->format('d-m-Y');
+
+
+            if ($checkOutMorning === null) {
+                $checkOutMorning = "No registro";
+            }else{
+                $checkOutMorning = Carbon::parse($lastAttendance->check_out_morning)->format('H:i:s');
+            }
+            if ($checkInMorning === null) {
+                $checkInMorning = "No registro";
+            }else{
+                $checkInMorning = Carbon::parse($lastAttendance->check_in_morning)->format('H:i:s');
+            }
+
         }
 
         return view('attendance.historial', [
