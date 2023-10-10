@@ -11,10 +11,10 @@
                             <div class="col-lg-12">
                                 <div class="card-body">
                                     <p class="card-title-desc text-center">
-                                    Usted ya registro su salida por la mañana
+                                    Hasta Mañana
                                     </p>
                                     <div class="card-body text-center p-0">
-                                        <a href="/checkin-afternoon" class="btn btn-success waves-effect waves-light">Registrar Entrada Tarde</a>
+                                        <a href="/historial" class="btn btn-success waves-effect waves-light">Historial</a>
                                     </div>
                                 </div>
                             </div>

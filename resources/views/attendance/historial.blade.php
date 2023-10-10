@@ -18,30 +18,52 @@
                                         <table class="table mb-0">
                                             <thead>
                                                 <tr class="text-center">
-                                                    <th>Fecha</th>
-                                                    <th>Ingreso Mañana</th>
-                                                    <th>Salida Mañana</th>
-                                                    <th>Ingreso Tarde</th>
-                                                    <th>Salida Tarde</th>
+                                                    <!--Tabla Normal-->
+                                                    <th class="d-none d-md-table-cell">Fecha</th>
+                                                    <th class="d-none d-md-table-cell">Ingreso Mañana</th>
+                                                    <th class="d-none d-md-table-cell">Salida Mañana</th>
+                                                    <th class="d-none d-md-table-cell">Ingreso Tarde</th>
+                                                    <th class="d-none d-md-table-cell">Salida Tarde</th>
+
+                                                    <!--Tabla responsiva-->
+                                                    <th class="d-md-none">Fecha</th>
+                                                    <th class="d-md-none">{{ $checkInDate }}</th>
                                                        
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <!-- Tabla normal-->
                                                 <tr class=" text-center">
-                                                    <th scope="row">{{ $checkInDate }}</th>
-                                                    <td>{{  $checkInMorning }}</td>
-                                                    <td>{{  $checkOutMorning }}</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
+                                                    <th scope="row" class="d-none d-md-table-cell">{{ $checkInDate }}</th>
+                                                    <td class="d-none d-md-table-cell">{{  $checkInMorning }}</td>
+                                                    <td class="d-none d-md-table-cell">{{  $checkOutMorning }}</td>
+                                                    <td class="d-none d-md-table-cell">{{  $checkInAfternoon }}</td>
+                                                    <td class="d-none d-md-table-cell">{{  $checkOutAfternoon }}</td>
                                                         
+                                                </tr>
+
+                                                <!-- Tabla normal Responsiva-->
+                                                <tr class=" text-center">
+                                                     <th class="d-md-none">Ingreso Mañana</th>
+                                                    <th class="d-md-none">{{ $checkInMorning }}</th>
+                                                </tr>
+                                                <tr class=" text-center">
+                                                     <th class="d-md-none">Salida Mañana</th>
+                                                    <th class="d-md-none">{{ $checkOutMorning }}</th>
+                                                </tr>
+                                                <tr class=" text-center">
+                                                     <th class="d-md-none">Ingreso Tarde</th>
+                                                    <th class="d-md-none">{{ $checkInAfternoon }}</th>
+                                                </tr>
+                                                <tr class=" text-center">
+                                                     <th class="d-md-none">Salida Tarde</th>
+                                                    <th class="d-md-none">{{ $checkOutAfternoon }}</th>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                    </div>
-        
-                                
+
                                     <div class="card-body text-center">
-                                        <a href="/attendance/checkout" class="btn btn-success waves-effect waves-light">Registrar</a>
+                                        <a href="/checkin-morning" class="btn btn-success waves-effect waves-light">Registrar</a>
                                     </div>
                                 </div>
                             </div>

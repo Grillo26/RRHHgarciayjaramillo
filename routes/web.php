@@ -26,13 +26,19 @@ Route::get('/', function () { return view('welcome');})->middleware(['auth'])->n
 require __DIR__ . '/auth.php';
 
 Route::controller(AttendanceController::class)->group(function() {
-    // Ruta para mostrar el formulario de entrada
+    // Ruta para mostrar el formulario de entrada y salida por la manana
     Route::get('/checkin-morning', 'showCheckInMorningForm')->name('checkinMorning');
     Route::post('/checkin-morning', 'checkInMorning')->name('checkinMorning');
     Route::get('/checkout-morning', 'showCheckOutMorningForm')->name('checkoutMorning');
     Route::post('/checkout-morning', 'checkOutMorning')->name('checkoutMorning');
 
     Route::get('/historial', 'historial')->name('historial');
+
+    // Ruta para mostrar el formulario de entrada y salida por la tarde
+    Route::get('/checkin-afternoon', 'showCheckInAfternoonForm')->name('checkinAfternoon');
+    Route::post('/checkin-afternoon', 'checkInAfternoon')->name('checkinAfternoon');
+    Route::get('/checkout-afternoon', 'showCheckOutAfternoonForm')->name('checkoutAfternoon');
+    Route::post('/checkout-afternoon', 'checkOutAfternoon')->name('checkoutAfternoon');
 });
 
 Route::controller(AdminController::class)->group(function () {

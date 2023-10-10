@@ -15,11 +15,34 @@ class AttendanceController extends Controller
         $user = auth()->user();
         $today = now()->format('Y-m-d');
 
-        // Verificar si ya se registró la asistencia completa de la mañana para acceder a la asistencia por la tarde
+        // Verificar si ya se registró la asistencia completa de la mañana 
         $morningAttendanceFull = $user->attendances()
         ->whereDate('check_in_morning', $today)
         ->whereNotNull('check_out_morning')
         ->first();
+
+        //Verifica si ya se registró la asistencia completa de la tarde
+        $afternoonAttendanceFull = $user->attendances()
+        ->whereDate('check_in_afternoon', $today)
+        ->whereNotNull('check_out_afternoon')
+        ->first();
+
+        //Verificacion si registro completo todo el día
+        if ($morningAttendanceFull && $afternoonAttendanceFull !== null) {
+            return view('attendance.verificacionFinal');
+        }
+
+        // Verificar si ya se registró la asistencia de entrada por la tarde
+        $afternoonAttendance = $user->attendances()
+            ->whereDate('check_in_afternoon', $today)
+            ->first();
+
+        //Verificacion si registro ingreso y salida mañana e ingreso tarde
+        if ($morningAttendanceFull && $afternoonAttendance !== null) {
+            return view('attendance.verificacionIngresoTarde');
+        }
+
+        //Verificacion si registro ingreso y salida mañana
         if ($morningAttendanceFull) {
             return view('attendance.verificacionTarde');
         }
@@ -78,7 +101,7 @@ class AttendanceController extends Controller
         $morningAttendance->check_out_morning = $checkOutMorning;
         $morningAttendance->save();
 
-        return view('attendance.historial');
+        return view('attendance.verificacionTarde');
         return redirect()->back()->with('success', 'Salida de la mañana registrada con éxito.');
     }
 
@@ -90,6 +113,8 @@ class AttendanceController extends Controller
         // Inicializar variables para la hora y la fecha
         $checkInMorning = null;
         $checkOutMorning = null;
+        $checkInAfternoon = null;
+        $checkOutAfternoon = null;
         $checkInDate = null;
 
         // Verificar si se encontró un registro de asistencia
@@ -97,18 +122,30 @@ class AttendanceController extends Controller
             
             $checkOutMorning = $lastAttendance->check_out_morning;
             $checkInMorning = $lastAttendance->check_in_morning;
+            $checkOutAfternoon = $lastAttendance->check_out_afternoon;
+            $checkInAfternoon = $lastAttendance->check_in_afternoon;
             $checkInDate = Carbon::parse($lastAttendance->attendance_date)->format('d-m-Y');
 
 
             if ($checkOutMorning === null) {
-                $checkOutMorning = "No registro";
+                $checkOutMorning = "No registrado";
             }else{
                 $checkOutMorning = Carbon::parse($lastAttendance->check_out_morning)->format('H:i:s');
             }
             if ($checkInMorning === null) {
-                $checkInMorning = "No registro";
+                $checkInMorning = "No registrado";
             }else{
                 $checkInMorning = Carbon::parse($lastAttendance->check_in_morning)->format('H:i:s');
+            }
+            if ($checkOutAfternoon === null) {
+                $checkOutAfternoon = "No registrado";
+            }else{
+                $checkOutAfternoon = Carbon::parse($lastAttendance->check_out_afternoon)->format('H:i:s');
+            }
+            if ($checkInAfternoon === null) {
+                $checkInAfternoon = "No registrado";
+            }else{
+                $checkInAfternoon = Carbon::parse($lastAttendance->check_in_afternoon)->format('H:i:s');
             }
 
         }
@@ -116,8 +153,76 @@ class AttendanceController extends Controller
         return view('attendance.historial', [
             'checkInMorning' => $checkInMorning,
             'checkOutMorning' => $checkOutMorning,
+            'checkInAfternoon' => $checkInAfternoon,
+            'checkOutAfternoon' => $checkOutAfternoon,
             'checkInDate' => $checkInDate,
         ]);
 
+    }
+
+    //Ingreso tarde
+    public function showCheckInAfternoonForm()
+    {
+
+        $user = auth()->user();
+        $today = now()->format('Y-m-d');
+
+        // Verificar si ya se registró la asistencia de la mañana
+        $morningAttendance = $user->attendances()
+            ->whereDate('check_out_morning', $today)
+            ->first();
+
+        if ($morningAttendance) {
+            return view('attendance.checkin_afternoon');
+        }
+
+        return view('attendance.checkout_morning');
+    }
+
+    public function checkInAfternoon(Request $request)
+    {
+        $user = auth()->user();
+        $checkInAfternoon = now();
+
+        // Actualizar el registro de asistencia con el ingreso de la mañana
+        $afternoonAttendance = $user->attendances()
+            ->whereDate('check_out_morning', now()->format('Y-m-d'))
+            ->first();
+
+        $afternoonAttendance->check_in_afternoon = $checkInAfternoon;
+        $afternoonAttendance->save();
+
+        return view('attendance.verificacionIngresoTarde');
+        return redirect()->back()->with('success', 'Ingreso registrado con éxito.');
+    }
+
+    public function showCheckOutAfternoonForm()
+    {
+        $user = auth()->user();
+        $today = now()->format('Y-m-d');
+
+        // Verificar si ya se registró la asistencia de la mañana
+        $afternoonAttendance = $user->attendances()
+            ->whereDate('check_in_afternoon', $today)
+            ->first();
+
+        return view('attendance.checkout_afternoon');
+    }
+
+    public function checkOutAfternoon(Request $request)
+    {
+        $user = auth()->user();
+        $checkOutAfternoon = now();
+
+        // Actualizar el registro de asistencia con la salida de la mañana
+        $afternoonAttendance = $user->attendances()
+            ->whereDate('check_in_afternoon', now()->format('Y-m-d'))
+            ->first();
+
+        $afternoonAttendance->check_out_afternoon = $checkOutAfternoon;
+        $afternoonAttendance->save();
+
+        return view('attendance.verificacionFinal');
+        return redirect()->back()->with('success', 'Salida de la mañana registrada con éxito.');
     }
 }
