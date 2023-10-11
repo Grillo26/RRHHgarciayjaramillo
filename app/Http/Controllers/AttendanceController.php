@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Attendance;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+
 
 class AttendanceController extends Controller
 {
@@ -107,6 +109,20 @@ class AttendanceController extends Controller
 
     public function historial(){
         $user = auth()->user();
+        $today = now()->format('Y-m-d');
+
+        // Realiza una consulta para verificar si hay registros para el día de hoy
+        $registrosHoy = Attendance::where('user_id', $user->id)
+        ->whereDate('attendance_date', $today)
+        ->count();
+
+        if ($registrosHoy === 0) {
+            // No hay registros para el día de hoy
+            return view('attendance.empty');
+        }
+
+
+
         // Obtener el registro de asistencia más reciente
         $lastAttendance = $user->attendances()->latest()->first();
 
@@ -159,6 +175,28 @@ class AttendanceController extends Controller
         ]);
 
     }
+
+    public function historialAll(){
+        // Obtiene el usuario actualmente autenticado
+        $user = auth()->user(); 
+
+        // Obtiene el historial de asistencia del usuario actual
+        $historialAsistencia = Attendance::where('user_id', $user->id)
+            ->select('check_in_morning', 'check_out_morning', 'check_in_afternoon', 'check_out_afternoon', 'attendance_date')
+            ->get();
+
+
+        foreach ($historialAsistencia as $asistencia) {
+                $asistencia->fecha = Carbon::parse($asistencia->fecha)->format('d-m-Y');
+                $asistencia->check_in_morning = Carbon::parse($asistencia->check_in_morning)->format('H:i:s');
+                $asistencia->check_out_morning = Carbon::parse($asistencia->check_out_morning)->format('H:i:s');
+                $asistencia->check_in_afternoon = Carbon::parse($asistencia->check_in_afternoon)->format('H:i:s');
+                $asistencia->check_out_afternoon = Carbon::parse($asistencia->check_out_afternoon)->format('H:i:s');
+        }
+
+        return view('attendance.historial_asistencia', compact('historialAsistencia'));
+    }
+
 
     //Ingreso tarde
     public function showCheckInAfternoonForm()
@@ -225,4 +263,6 @@ class AttendanceController extends Controller
         return view('attendance.verificacionFinal');
         return redirect()->back()->with('success', 'Salida de la mañana registrada con éxito.');
     }
+
+    
 }

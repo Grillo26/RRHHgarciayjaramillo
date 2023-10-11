@@ -27,17 +27,25 @@
                 </li>
 
                 <li>
-                    <a href="javascript: void(0);" class="">
+                    <a href="{{ route('checkinMorning') }}" class="">
                         <i class="ri-user-follow-line"></i>
-                        <span>Asistencia</span>
+                        <span>Registrar Asistencia</span>
+                    </a>
+                   
+                </li>
+                
+                <li>
+                    <a href="javascript: void(0);" class="">
+                        <i class="ri-database-2-line"></i>
+                        <span>Historial</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('checkinMorning') }}">Registro</a></li>
+                        <li><a href="{{ route('historial') }}">Asistencia Hoy</a></li>
                     </ul>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('historial') }}">Historial</a></li>
+                        <li><a href="{{ route('historialAll') }}">Historial</a></li>
                     </ul>
-                </li>          
+                </li> 
             </ul>
         </div>
         <!-- Sidebar -->

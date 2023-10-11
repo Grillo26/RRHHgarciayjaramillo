@@ -33,6 +33,7 @@ Route::controller(AttendanceController::class)->group(function() {
     Route::post('/checkout-morning', 'checkOutMorning')->name('checkoutMorning');
 
     Route::get('/historial', 'historial')->name('historial');
+    Route::get('/historial-asistencia', 'historialAll')->name('historialAll');
 
     // Ruta para mostrar el formulario de entrada y salida por la tarde
     Route::get('/checkin-afternoon', 'showCheckInAfternoonForm')->name('checkinAfternoon');
