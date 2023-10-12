@@ -183,15 +183,29 @@ class AttendanceController extends Controller
         // Obtiene el historial de asistencia del usuario actual
         $historialAsistencia = Attendance::where('user_id', $user->id)
             ->select('check_in_morning', 'check_out_morning', 'check_in_afternoon', 'check_out_afternoon', 'attendance_date')
+            ->orderBy('attendance_date', 'desc')
             ->get();
 
 
+         // Recorre y formatea los datos
         foreach ($historialAsistencia as $asistencia) {
-                $asistencia->fecha = Carbon::parse($asistencia->fecha)->format('d-m-Y');
-                $asistencia->check_in_morning = Carbon::parse($asistencia->check_in_morning)->format('H:i:s');
-                $asistencia->check_out_morning = Carbon::parse($asistencia->check_out_morning)->format('H:i:s');
-                $asistencia->check_in_afternoon = Carbon::parse($asistencia->check_in_afternoon)->format('H:i:s');
-                $asistencia->check_out_afternoon = Carbon::parse($asistencia->check_out_afternoon)->format('H:i:s');
+            $campos = [
+                'check_in_morning' => 'H:i:s',
+                'check_out_morning' => 'H:i:s',
+                'check_in_afternoon' => 'H:i:s',
+                'check_out_afternoon' => 'H:i:s'
+            ];
+
+            // Verifica y reemplaza los valores nulos
+            foreach ($campos as $campo => $formato) {
+                if (is_null($asistencia->$campo)) {
+                    $asistencia->$campo = 'No registrado';
+                } else {
+                    $asistencia->$campo = Carbon::parse($asistencia->$campo)->format($formato);
+                }
+            }
+
+            $asistencia->attendance_date = Carbon::parse($asistencia->attendance_date)->format('d-m-Y');
         }
 
         return view('attendance.historial_asistencia', compact('historialAsistencia'));

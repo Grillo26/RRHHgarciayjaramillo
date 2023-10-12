@@ -12,7 +12,7 @@
                                 <div class="card-body text-center">
                                     <h4 class="card-title">Historial de Registro día </h4>
                                     <p class="card-title-desc">
-                                        Hoy no registro su asitencia hasta el momento
+                                        Hoy no registro su asistencia.
                                     </p>
 
                                     <div class="card-body text-center">
