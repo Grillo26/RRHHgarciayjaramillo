@@ -74,7 +74,7 @@ class AttendanceController extends Controller
             'attendance_date' => $today
         ]);
 
-        return redirect()->back()->with('success', 'Asistencia de la mañana registrada con éxito.');
+        return redirect()->back()->with('Registrado', 'Asistencia de la mañana registrada con éxito.');
     }
 
     public function showCheckOutMorningForm()

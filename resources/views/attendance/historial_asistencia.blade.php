@@ -10,7 +10,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card-body">
-                                    <h4 class="card-title">Historial de Registro hasta la fecha</h4>
+                                    <h4 class="card-title">Historial de Asistencia hasta la fecha</h4>
                                     <p class="card-title-desc">
                                         El registro de la asistencia se realiza al ingresar al sistema con su usuario y contraseña.
                                     </p>
