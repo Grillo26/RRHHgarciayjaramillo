@@ -6,6 +6,7 @@ use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\myController;
 use App\Http\Controllers\ProductController;
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AttendanceController;
 
 use Illuminate\Support\Facades\Route;
@@ -42,11 +43,18 @@ Route::controller(AttendanceController::class)->group(function() {
     Route::post('/checkout-afternoon', 'checkOutAfternoon')->name('checkoutAfternoon');
 });
 
+Route::controller(UserController::class)->group(function(){
+    Route::get('/users', 'show')->name('users.show');
+});
+
+
+
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admin_logout', 'destroy')->name('admin.logout');
     Route::get('/admin_profile', 'profile')->name('admin.profile');
     Route::get('/admin_edit_profile', 'editProfile')->name('admin.edit.profile');
     Route::post('/admin_store_profile', 'storeProfile')->name('admin.store.profile');
+
 
     // change_password
 

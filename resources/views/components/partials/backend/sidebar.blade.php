@@ -46,6 +46,19 @@
                         <li><a href="{{ route('historialAll') }}">Historial</a></li>
                     </ul>
                 </li> 
+
+                <li>
+                    <a href="javascript: void(0);" class="">
+                        <i class="ri-user-fill"></i>
+                        <span>Usuarios</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('users.show') }}">Lista de Usarios</a></li>
+                    </ul>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('historialAll') }}">Historial</a></li>
+                    </ul>
+                </li> 
             </ul>
         </div>
         <!-- Sidebar -->
