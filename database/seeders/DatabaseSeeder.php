@@ -15,14 +15,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $imagenPath = public_path('img/profile.png');
+        // Define la imagen predeterminada
+        $defaultImage = public_path('upload/admin_image/default.png');
+        $filename = date('YmdHi').$defaultImage->getClientOriginalName();
 
-        // \App\Models\User::factory(10)->create();
+
         $user = new User();
         $user->name = 'Carlos Enrique';
         $user->email = 'carlsenrmt26@gmail.com';
         $user->username = 'grillo26';
-        $user->p_image = public_path('img/profile.png');
+        $user->p_image =  $filename;
         $user->email_verified_at = now();
         $user->password =  bcrypt('kuynva26101997');
         $user->remember_token = Str::random(10);
@@ -32,7 +34,7 @@ class DatabaseSeeder extends Seeder
         $user2->name = 'Lorena';
         $user2->email = 'lore@gmail.com';
         $user2->username = 'lore';
-        $user2->p_image = public_path('img/profile.png');
+        $user2->p_image = $filename;
         $user2->email_verified_at = now();
         $user2->password =  bcrypt('kuynva26101997');
         $user2->remember_token = Str::random(10);
@@ -42,7 +44,17 @@ class DatabaseSeeder extends Seeder
         $user3->name = 'fabiola';
         $user3->email = 'fabi@gmail.com';
         $user3->username = 'fabi';
-        $user3->p_image = public_path('img/profile.png');
+        $user3->p_image = $filename;
+        $user3->email_verified_at = now();
+        $user3->password =  bcrypt('kuynva26101997');
+        $user3->remember_token = Str::random(10);
+        $user3->save();
+
+        $user3 = new User();
+        $user3->name = 'Zulema';
+        $user3->email = 'zule@gmail.com';
+        $user3->username = 'zule';
+        $user3->p_image = $filename;
         $user3->email_verified_at = now();
         $user3->password =  bcrypt('kuynva26101997');
         $user3->remember_token = Str::random(10);

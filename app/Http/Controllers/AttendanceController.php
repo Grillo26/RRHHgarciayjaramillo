@@ -120,9 +120,6 @@ class AttendanceController extends Controller
             // No hay registros para el día de hoy
             return view('attendance.empty');
         }
-
-
-
         // Obtener el registro de asistencia más reciente
         $lastAttendance = $user->attendances()->latest()->first();
 
