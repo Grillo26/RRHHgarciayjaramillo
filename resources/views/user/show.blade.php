@@ -32,17 +32,9 @@
                                 <p class="text-muted font-size-14">{{ $user->username}}</p>
 
                                 <ul class="social-links list-inline mb-0">
-                                    <li class="list-inline-item"><a role="button" class="text-reset" title="Facebook" data-bs-placement="top" data-bs-toggle="tooltip" class="tooltips" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <li class="list-inline-item">
+                                    <button type="button" class="btn btn-success waves-effect waves-light">Success</button>
 
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a role="button" class="text-reset" title="Twitter" data-bs-placement="top" data-bs-toggle="tooltip" class="tooltips" href=""><i class=" fab fa-twitter"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a role="button" class="text-reset" title="1234567890" data-bs-placement="top" data-bs-toggle="tooltip" class="tooltips" href=""><i class="fas fa-phone-alt"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a role="button" class="text-reset" title="@skypename" data-bs-placement="top" data-bs-toggle="tooltip" class="tooltips" href=""><i class="fab fa-skype"></i></a>
                                     </li>
                                 </ul>
 

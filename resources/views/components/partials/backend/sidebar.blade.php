@@ -56,7 +56,7 @@
                         <li><a href="{{ route('users.show') }}">Lista de Usarios</a></li>
                     </ul>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('historialAll') }}">Historial</a></li>
+                        <li><a href="{{ route('users.register') }}">Registrar Asistencia</a></li>
                     </ul>
                 </li> 
             </ul>

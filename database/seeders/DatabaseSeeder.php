@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
         // Define la imagen predeterminada
         $defaultImage = public_path('upload/admin_image/default.png');
         $filename = date('YmdHi').$defaultImage->getClientOriginalName();
+        $file->move(public_path('upload/admin_image'),$filename);
+
 
 
         $user = new User();
