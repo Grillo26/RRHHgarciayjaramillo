@@ -45,8 +45,10 @@ Route::controller(AttendanceController::class)->group(function() {
 
 Route::controller(UserController::class)->group(function(){
     Route::get('/users', 'show')->name('users.show');
-    Route::get('/users/register', 'showRegister')->name('users.register');
-    Route::get('/users/register-attendance', 'Register')->name('users.register');
+
+    Route::get('/users/register', 'show')->name('users.register');
+    Route::post('/users/register', 'store')->name('users.register');
+    
 });
 
 
