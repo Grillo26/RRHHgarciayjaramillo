@@ -60,41 +60,41 @@ class UserController extends Controller
             return view('user.registrar', compact('historialAsistencia')); // Pasa la lista de usuarios a la vista
 
     }
-    public function store(Request $request){
-        $validator = Validator::make($request->all(), [
-            'user_id' => 'required|exists:users,id',
-            'check_in_morning' => 'nullable|date_format:H:i',
-            'check_out_morning' => 'nullable|date_format:H:i',
-            'check_in_afternoon' => 'nullable|date_format:H:i',
-            'check_out_afternoon' => 'nullable|date_format:H:i',
-            // Otras validaciones
-        ]);
 
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
+    public function edit($id){
+        $attendance = Attendance::find($id);
+
+        if (!$attendance) {
+            return redirect()->route('user.asistencia')
+                ->with('error', 'Registro de asistencia no encontrado.');
         }
-    
-        // Combina la fecha actual con la hora ingresada por el usuario
-        $checkInMorning = Carbon::now()->format('Y-m-d') . ' ' . $request->input('check_in_morning');
-        $checkOutMorning = Carbon::now()->format('Y-m-d') . ' ' . $request->input('check_out_morning');
-        $checkInAfternoon = Carbon::now()->format('Y-m-d') . ' ' . $request->input('check_in_afternoon');
-        $checkOutAfternoon = Carbon::now()->format('Y-m-d') . ' ' . $request->input('check_out_afternoon');
 
-        // Agrega la fecha de hoy al campo attendance_date
-        $attendanceDate = Carbon::today()->toDateString();
+        return view('user.asistencia', compact('attendance'));
+    }
 
-    
-        // Guarda el registro en la base de datos
-        Attendance::create([
-            'user_id' => $request->input('user_id'),
-            'check_in_morning' => $checkInMorning,
-            'check_out_morning' => $checkOutMorning,
-            'check_in_afternoon' => $checkInAfternoon,
-            'check_out_afternoon' => $checkOutAfternoon,
-            'attendance_date' => $attendanceDate,
-            // Otros campos
-        ]);
+    public function update(Request $request, $id){
+    $request->validate([
+        'check_in_morning' => 'nullable|date_format:H:i',
+        'check_out_morning' => 'nullable|date_format:H:i',
+        'check_in_afternoon' => 'nullable|date_format:H:i',
+        'check_out_afternoon' => 'nullable|date_format:H:i',
+    ]);
 
-        return redirect()->back()->with('Registrado', 'Asistencia registrada con éxito.');
+    $attendance = Attendance::find($id);
+
+    if (!$attendance) {
+        return redirect()->route('asistencia.index')
+            ->with('error', 'Registro de asistencia no encontrado.');
+    }
+
+    $attendance->check_in_morning = $request->input('check_in_morning');
+    $attendance->check_out_morning = $request->input('check_out_morning');
+    $attendance->check_in_afternoon = $request->input('check_in_afternoon');
+    $attendance->check_out_afternoon = $request->input('check_out_afternoon');
+
+    $attendance->save();
+
+    return redirect()->route('asistencia.index')
+        ->with('success', 'Registro de asistencia actualizado con éxito.');
     }
 }
