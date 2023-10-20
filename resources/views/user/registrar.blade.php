@@ -4,7 +4,7 @@
 
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">Registro de Asistencia</div>
 
@@ -32,15 +32,15 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach ($users as $user)
-                                                <tr>
-                                                    <th scope="row">{{ $user->id}}</th>
-                                                    <td>{{ $user->name }}</td>
-                                                    <td>{{ $user->check_in_morning}}</td>
-                                                    <td>{{ $user->check_out_morning}}</td>
-                                                    <td>{{ $user->check_in_afternoon}}</td>
-                                                    <td>{{ $user->check_out_afternoon}}</td>
-                                                    <td><button type="submit" class="btn btn-success waves-effect waves-light">Registrar</button></td>
+                                            @foreach($historialAsistencia as $asistencia)
+                                                <tr class="align-middle">
+                                                    <th scope="row">{{ $asistencia->id}}</th>
+                                                    <td>{{ $asistencia->name }}</td>
+                                                    <td>{{ $asistencia->check_in_morning}}</td>
+                                                    <td>{{ $asistencia->check_out_morning}}</td>
+                                                    <td>{{ $asistencia->check_in_afternoon}}</td>
+                                                    <td>{{ $asistencia->check_out_afternoon}}</td>
+                                                    <td><button type="submit" class="btn btn-success waves-effect waves-light"> <i class="ri-time-line"></i></button></td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
