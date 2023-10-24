@@ -61,24 +61,20 @@ class UserController extends Controller
 
     }
 
-    public function edit($id){
+    public function edit(Request $request, User $id){
         $attendance = Attendance::find($id);
+        $users = User::find($id);
 
-        if (!$attendance) {
-            return redirect()->route('user.asistencia')
-                ->with('error', 'Registro de asistencia no encontrado.');
-        }
-
-        return view('user.asistencia', compact('attendance'));
+        return view('user.asistencia', compact('attendance','users'));
     }
 
     public function update(Request $request, $id){
-    $request->validate([
-        'check_in_morning' => 'nullable|date_format:H:i',
-        'check_out_morning' => 'nullable|date_format:H:i',
-        'check_in_afternoon' => 'nullable|date_format:H:i',
-        'check_out_afternoon' => 'nullable|date_format:H:i',
-    ]);
+        $request->validate([
+            'check_in_morning' => 'nullable|date_format:H:i',
+            'check_out_morning' => 'nullable|date_format:H:i',
+            'check_in_afternoon' => 'nullable|date_format:H:i',
+            'check_out_afternoon' => 'nullable|date_format:H:i',
+        ]);
 
     $attendance = Attendance::find($id);
 

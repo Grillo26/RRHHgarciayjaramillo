@@ -41,7 +41,7 @@
                                                     <td>{{ $asistencia->check_in_afternoon}}</td>
                                                     <td>{{ $asistencia->check_out_afternoon}}</td>
                                                     <td>
-                                                        <a href="{{ route('users.attendance', $asistencia->id) }}""><button class="btn btn-success waves-effect waves-light"><i class="ri-time-line"></i></button></a>
+                                                        <a href="{{ route('users.attendance' , $asistencia->id) }}"><button class="btn btn-success waves-effect waves-light"><i class="ri-time-line"></i></button></a>
                                                     </td>
                                                 </tr>
                                             @endforeach

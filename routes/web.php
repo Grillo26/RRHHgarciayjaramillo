@@ -49,7 +49,7 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/users/register', 'show')->name('users.register');
     Route::post('/users/register', 'store')->name('users.register');
     
-    Route::get('/users/attendance/{$id}', 'edit')->name('users.attendance');
+    Route::get('/users/attendance/$id' , 'edit')->name('users.attendance');
     
 });
 
