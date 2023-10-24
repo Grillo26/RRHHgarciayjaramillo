@@ -62,10 +62,10 @@ class UserController extends Controller
     }
 
     public function edit(Request $request, User $id){
-        $attendance = Attendance::find($id);
-        $users = User::find($id);
+        $attendance = Attendance::with('user')->find($id);
 
-        return view('user.asistencia', compact('attendance','users'));
+
+        return view('user.asistencia', compact('attendance'));
     }
 
     public function update(Request $request, $id){
