@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\AsistenciaController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +27,7 @@ Route::get('/', function () { return view('welcome');})->middleware(['auth'])->n
 
 require __DIR__ . '/auth.php';
 
-Route::controller(AttendanceController::class)->group(function() {
+Route::controller(AttendanceController::class)->middleware(['auth'])->group(function() {
     // Ruta para mostrar el formulario de entrada y salida por la manana
     Route::get('/checkin-morning', 'showCheckInMorningForm')->name('checkinMorning');
     Route::post('/checkin-morning', 'checkInMorning')->name('checkinMorning');
@@ -41,6 +42,13 @@ Route::controller(AttendanceController::class)->group(function() {
     Route::post('/checkin-afternoon', 'checkInAfternoon')->name('checkinAfternoon');
     Route::get('/checkout-afternoon', 'showCheckOutAfternoonForm')->name('checkoutAfternoon');
     Route::post('/checkout-afternoon', 'checkOutAfternoon')->name('checkoutAfternoon');
+});
+
+Route::controller(AsistenciaController::class)->middleware(['auth'])->group(function(){
+    Route::get('/lista-usuarios', 'index')->name('asistencia.index');
+
+
+
 });
 
 Route::controller(UserController::class)->group(function(){

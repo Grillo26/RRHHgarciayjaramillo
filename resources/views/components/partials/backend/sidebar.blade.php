@@ -56,6 +56,16 @@
                         <li><a href="{{ route('users.register') }}">Registrar Asistencia</a></li>
                     </ul>
                 </li> 
+
+                <li>
+                    <a href="javascript: void(0);" class="">
+                        <i class="ri-calendar-check-line"></i>
+                        <span>Asistencia</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('asistencia.index') }}">Registrar Asistencia </a></li>
+                    </ul>
+                </li> 
             </ul>
         </div>
         <!-- Sidebar -->

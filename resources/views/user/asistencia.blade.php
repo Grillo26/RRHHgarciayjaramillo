@@ -12,7 +12,7 @@
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="card-title pb-2">Registrar asistencia de: {{$attendance->name}}  </h4>
+                                            <h4 class="card-title pb-2">Registrar asistencia de:  </h4>
                                             
                                             <form class="needs-validation" novalidate>
                                                 <div class="row">

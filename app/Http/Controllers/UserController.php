@@ -61,7 +61,7 @@ class UserController extends Controller
 
     }
 
-    public function edit(Request $request, User $id){
+    public function edit(Request $request, Attendance $id){
         $attendance = Attendance::with('user')->find($id);
 
 
