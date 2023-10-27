@@ -43,7 +43,7 @@
 
                                                     
                                                     <td>
-                                                        <a href="#"><button class="btn btn-success waves-effect waves-light"><i class="ri-time-line"></i></button></a>
+                                                        <a href="{{ route('asistencia.registrar', $user->id ) }}"><button class="btn btn-success waves-effect waves-light"><i class="ri-time-line"></i></button></a>
                                                     </td>
                                                 </tr>
                                                 @endforeach

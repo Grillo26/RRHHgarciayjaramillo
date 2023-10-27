@@ -46,6 +46,7 @@ Route::controller(AttendanceController::class)->middleware(['auth'])->group(func
 
 Route::controller(AsistenciaController::class)->middleware(['auth'])->group(function(){
     Route::get('/lista-usuarios', 'index')->name('asistencia.index');
+    Route::get('/lista-usuarios/registrar/$id', 'registrar')->name('asistencia.registrar');
 
 
 

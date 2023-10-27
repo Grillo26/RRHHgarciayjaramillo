@@ -18,9 +18,13 @@ class AsistenciaController extends Controller
             $join->on('users.id', '=', 'asistencias.user_id')
                 ->whereDate('attendance_date', '=', $today);
         })
-        ->select('users.*', 'asistencias.check_in_morning', 'asistencias.check_out_morning', 'asistencias.check_in_afternoon', 'asistencias.check_out_afternoon', 'attendances.attendance_date')
+        ->select('users.*', 'asistencias.check_in_morning', 'asistencias.check_out_morning', 'asistencias.check_in_afternoon', 'asistencias.check_out_afternoon', 'asistencias.attendance_date')
         ->get();
 
         return view('asistencia.users.index', compact('users'));
+    }
+
+    public function registrar(User $id){
+        return view('asistencia.users.registrar');
     }
 }
